@@ -1,0 +1,229 @@
+
+.btn-primary {
+    color: #fff;
+    background-color: #32a883;
+
+}
+h2{
+    font-size: x-large;
+    color:#32a883;
+}
+.n1{
+    font-size: x-large;
+   color:white;
+
+}
+#tablica1{
+
+    position: relative;
+    background-color:white ;
+    text-align: center;
+
+}
+.navbar-light .navbar-brand {
+    color:#32a883!important;
+}
+
+.navbar-light .navbar-brand:hover,
+.navbar-light .navbar-brand:focus {
+    color:#32a883!important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color:#32a883!important;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+    color:#32a883!important;
+}
+
+.navbar-light .navbar-nav .nav-link.disabled {
+    color:#32a883!important;
+}
+
+.navbar-light .navbar-nav .show > .nav-link,
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .nav-link.active {
+    color:#32a883!important;
+}
+
+.navbar-light .navbar-toggler {
+    color:#32a883!important;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-light .navbar-text {
+    color:#32a883!important;
+}
+
+.navbar-light .navbar-text a {
+    color:#32a883!important;
+}
+
+.navbar-light .navbar-text a:hover,
+.navbar-light .navbar-text a:focus {
+    color:#32a883!important;
+}
+#columns {
+
+    padding: 0.9375rem;
+    width: 100%;
+    float: left;
+text-align: center;
+
+
+}
+body {
+    margin: 0;
+
+
+
+    color: black;
+
+    text-align: left;
+    background-color: rgb(40,35,41);
+}
+th{
+    color: #32a883;
+    font-size: larger;
+}
+.navbar-brand{
+    color: #32a883;
+}
+.large-3 {
+  margin:5%;
+
+
+}
+.tablice{
+    width:100%;
+    text-align: center;
+
+
+}
+.tablica{
+    width:100%;
+    align:center;
+
+}
+
+.slike{
+    width:200px;
+    height: 200px;
+    border-radius: 20%;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+
+
+
+}
+.slike1{
+    width:150px;
+    height:150px;
+    border-radius: 20%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.card-header{
+    text-align: center;
+
+}
+.card-body{
+    text-align: center;
+}
+.kolicina{
+    width:10%;
+    border-radius: 20%;
+    color: #32a883;
+    text-align: center;
+
+}
+
+
+
+.cijena{
+    width:30%;
+
+    border-radius: 20%;
+    color: #32a883;
+    text-align: center;
+}
+@media only screen and (min-width:1200px){
+.large-3 {
+
+    width: 20%;
+}
+.columns{
+    display: inline-block;
+}}
+@media only screen and (max-width:374px) {
+    .slike{
+        width:150px;
+        height:150px;
+    }
+    .slike1{
+        width:50px;
+        height:50px;
+    }
+    .tablice{
+        width:100%;
+}
+    .card{
+        width:100%;
+    }
+    .sakrij{
+        display:none;
+    }
+ .kolicina{
+     width:25%;
+ }
+}
+@media only screen and (min-width:374px) and (max-width:600px ){
+    .slike{
+        width:150px;
+        height:150px;
+    }
+    .slike1{
+        width:50px;
+        height: 50px;
+    }
+    .kolicina{
+        width:25%;
+    }
+
+}
+.links  {
+    color: #32a883;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.potvrdi{
+    background-color: #2fa360;
+}
+.odbij{
+    background-color: red;
+}
+.m-b-md {
+    margin-bottom: 30px;
+}
+@media only screen and (max-width:600px) {
+    .links  {
+        display: block;
+
+    }
+}
