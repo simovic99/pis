@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>El Hefe</title>
+        <title>Opg</title>
         <link rel="icon" href="{!! asset('images/icon.png') !!}"/>
 
 
