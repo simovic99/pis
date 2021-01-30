@@ -13,7 +13,41 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        @auth
+                        @auth @foreach ($korisnici as $korisnik)
+                                @if($korisnik->id == Auth::user()->my_id() && !Auth::user()->isSuperAdmin())
+                                <div class="large-3 columns ">
+                                    <table class="table table-bordered" id="tablice" >
+                                        <thead>
+                                        <tr>
+                                            <th>{{$korisnik->name}} </th></tr>
+
+                                        <tbody>
+
+                                <tr>
+
+                                    <td><strong>E-mail: </strong> {{$korisnik->email}}</td></tr>
+                            <!--    <p><h3> role :{{$korisnik->role}}</h3></p>-->
+                                <tr><td> <strong> Uloga: </strong>
+                                @if($korisnik->role==2) superadmin
+
+                                    @else (korisnik->role==0) korisnik
+                                        @endif</td>
+                                    </tr>
+                                    <form action="{{ route('users.destroy', $korisnik->id) }}" method="POST">
+                                 <tr> <td><a href="{{ route('users.edit', $korisnik->id) }}"><i class="fas fa-edit  fa-lg"></i></a>
+                                       @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" title="delete" style="border: none; background-color:transparent;">
+                                        <i class="fas fa-trash fa-lg text-danger"></i>
+            </td>
+                                 </tr></form>
+
+                                        </tbody>
+                                    </table></div>
+                                    @endif
+                            @endforeach
+
                             @if(Auth::user()->isSuperAdmin())
                                     @foreach ($korisnici as $korisnik)
                                         <div class="large-3 columns ">
@@ -30,20 +64,25 @@
                             <!--    <p><h3> role :{{$korisnik->role}}</h3></p>-->
                                 <tr><td> <strong> Uloga: </strong>
                                 @if($korisnik->role==2) superadmin
-                                    @elseif($korisnik->role==1)admin
+
                                     @else (korisnik->role==0) korisnik
                                         @endif</td>
                                     </tr>
-                                 <tr> <td><a href="{{ route('users.edit', $korisnik->id) }}"><button class="btn btn-primary">Ažuriraj</button> </a></td>
-                                 </tr>
-                                 <tr><td>       <a href="{{ route('users.destroy', $korisnik->id) }}"><button class="btn btn-primary">Izbriši</button> </a>
+                                    <form action="{{ route('users.destroy', $korisnik->id) }}" method="POST">
+                                 <tr> <td><a href="{{ route('users.edit', $korisnik->id) }}"><i class="fas fa-edit  fa-lg"></i></a>
+                                       @csrf
+                                    @method('DELETE')
 
-                                    </td>
-                                </tr>
+                                    <button type="submit" title="delete" style="border: none; background-color:transparent;">
+                                        <i class="fas fa-trash fa-lg text-danger"></i>
+            </td>
+                                 </tr></form>
+
                                         </tbody>
                                     </table></div>
                             @endforeach
-                                @else nedam uci
+
+
                             @endif
 
 

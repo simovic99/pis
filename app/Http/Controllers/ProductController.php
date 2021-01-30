@@ -8,7 +8,7 @@ use App\Models\Product;
 use App\Models\User;
 use App\Product as AppProduct;
 use Illuminate\Http\Request;
-
+use DB;
 class ProductController extends Controller
 {
     /**
@@ -16,12 +16,20 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
 
     {
         //
+
         $opgs=Opg::all();
-        $products=Product::all();
+        $products=Product::where([['naziv','!=',Null],[function($querry)use($request){
+            if(($term=$request->term)){
+                $querry->orWhere('naziv','LIKE','%'.$term.'%')->get();
+            }
+
+
+
+        }]])->orderBy('id','desc')->paginate(12);
         return view('product.index',compact('opgs','products'));
     }
 
@@ -101,8 +109,12 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $opg=DB::table('opg')->where('id',$product->opg_id)->value('user_id');
+        $kategorija=Kategorije::all();
+        return view('product.edit', compact('product','opg','kategorija'));
     }
+
+
 
     /**
      * Update the specified resource in storage.
@@ -114,6 +126,16 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+        $request->validate([
+            'naziv' => 'required',
+            'cijena' => 'required',
+            'kategorija_id' => 'required',
+
+        ]);
+        $product->update($request->all());
+
+        return redirect()->route('product.index')
+            ->with('success', 'Product updated successfully');
     }
 
     /**
@@ -125,5 +147,10 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+        $product->delete();
+
+        return redirect()->route('product.index')
+            ->with('success', 'Product deleted successfully');
+
     }
-}
+    }

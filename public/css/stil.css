@@ -8,10 +8,17 @@ h2{
     font-size: x-large;
     color:#32a883;
 }
+
 .n1{
     font-size: x-large;
    color:white;
 
+}
+.brisi{
+    background-color:#d66363;
+}
+.azuriraj{
+    background-color:#03a1fc;
 }
 #tablica1{
 
@@ -87,7 +94,7 @@ body {
     color: black;
 
     text-align: left;
-    background-color: rgb(40,35,41);
+    background-color:#5a635f;
 }
 th{
     color: #32a883;
@@ -137,10 +144,20 @@ th{
 }
 .card-header{
     text-align: center;
+    color:#32a883;
+    font-size: x-large;
+
+}
+.search {
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 .card-body{
     text-align: center;
+
 }
 .kolicina{
     width:10%;

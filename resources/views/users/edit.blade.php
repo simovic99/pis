@@ -14,7 +14,7 @@
                             </div>
                         @endif
                         @auth
-                            @if(Auth::user()->isSuperAdmin())
+                            @if(Auth::user()->isSuperAdmin() || Auth::user()->my_id() ==$user->id)
 
                             <form action="{{ route('users.update', $user->id) }}" method="POST">
                                 @csrf
@@ -34,6 +34,7 @@
                                                 placeholder="e-mail">{{ $user->email }}</textarea>
                                         </div>
                                     </div>
+                                    @if(Auth::user()->isSuperAdmin())
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <strong>role:</strong>
@@ -45,6 +46,12 @@
 
                                         </div>
                                     </div>
+                                    @endif
+
+
+
+
+
 
                                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                         <button type="submit" class="btn btn-primary">Submit</button>

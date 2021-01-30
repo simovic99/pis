@@ -1,3 +1,5 @@
+
+
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,22 +22,33 @@
                     <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                         {{ __('Korisnici') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('opg.index')" :active="request()->routeIs('opg.index')">
-                        {{ __('Opg') }}
+                    @else
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                        {{ __('Moj profil') }}
                     </x-nav-link>
                     @endif
                     @endauth
+                    <x-nav-link :href="route('opg.index')" :active="request()->routeIs('opg.index')"  >
+                        {{ __('OPG-ovi') }}
+                    </x-nav-link>
+                    @guest
+                    <x-nav-link :href="route('dashboard')" :>
+                        {{ __('Prijava') }}
+                    </x-nav-link>
+                    @endguest
+
                 </div>
             </div>
 
 
             <!-- Settings Dropdown -->
+            @auth
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                           @auth  <div>{{ Auth::user()->name }}</div>
-                            @endauth
+                            <div>{{ Auth::user()->name }}</div>
+
 
                             <div class="ml-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -58,7 +71,8 @@
                         </form>
                     </x-slot>
                 </x-dropdown>
-            </div>
+            </div> @endauth
+
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">

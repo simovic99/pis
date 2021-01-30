@@ -76,7 +76,10 @@ class OpgController extends Controller
      */
     public function edit(Opg $opg)
     {
-        //
+
+        $korisnici=User::all();
+        return view('opg.edit', compact('opg','korisnici'));
+
     }
 
     /**
@@ -89,6 +92,16 @@ class OpgController extends Controller
     public function update(Request $request, Opg $opg)
     {
         //
+        $request->validate([
+            'naziv' => 'required',
+            'adresa' => 'required',
+            'telefon' => 'required',
+
+        ]);
+        $opg->update($request->all());
+
+        return redirect()->route('opg.index')
+            ->with('success', 'Opg updated successfully');
     }
 
     /**
@@ -99,6 +112,10 @@ class OpgController extends Controller
      */
     public function destroy(Opg $opg)
     {
-        //
+        $opg->delete();
+
+        return redirect()->route('opg.index')
+            ->with('success', 'Opg deleted successfully');
+
     }
 }

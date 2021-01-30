@@ -16,7 +16,34 @@
                                 {{ session('status') }}
 
                             </div>
-                        @endif<div class="">
+                        @endif
+
+                        <div class="">
+                            <div>
+                                <div class="mx-auto pull-right">
+                                    <div class="search">
+                                        <form action="{{ route('product.index') }}" method="GET" role="search">
+
+                                            <div class="input-group">
+
+                                                <input type="text" class="form-control mr-2" name="term" placeholder="Pretraži proizvode" id="term">
+                                                <span class="input-group-btn mr-5 mt-1">
+                                                    <button class="btn btn-primary" type="submit" title="Pretraži proizvode">
+                                                        <span class="fas fa-search"></span>
+                                                    </button>
+
+                                                <a href="{{ route('product.index') }}" class=" mt-1">
+
+                                                        <button class="btn btn-danger" type="button" title="Refresh page">
+                                                            <span class="fas fa-sync-alt"></span>
+                                                        </button>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
 
 
 
@@ -35,14 +62,32 @@
 
 
                                  <tr>     <td><strong>Opis: </strong>{{ $product->opis}}</td></tr>
+                                 <tr>  <td><strong>Cijena:</strong> {{ $product->cijena }} KM</td></tr>
                                  <tr>     <td><strong>Opg: </strong> @foreach($opgs as $opg)
                                     @if($opg->id == $product->opg_id)
                                      {{  $opg->naziv}}
-                                    @endif
+                                     </td></tr>
+
+                                    @auth @if(Auth::user()->isSuperAdmin() || Auth::user()->my_id() == $opg->user_id) <tr>
+                                        <form action="{{ route('product.destroy', $product->id) }}" method="POST">
+                                        <td><a href="{{ route('product.edit', $product->id) }}"> <i class="fas fa-edit  fa-lg"></i></a>
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button type="submit" title="delete" style="border: none; background-color:transparent;">
+                                            <i class="fas fa-trash fa-lg text-danger"></i>
+                                   </td></form>
+                                </tr>
+                                @endif
+                                @endif
+
+                                @endauth
                                     @endforeach
 
                                      </td></tr>
-                         <tr>  <td><strong>Cijena:</strong> {{ $product->cijena }} KM</td></tr>
+
+
+
                          <tr> <td><a href="{{ route('opg.show', $product->opg_id) }}"><button class="btn btn-primary">Detalji opg-a</button> </a></td>
                          </tr>
 

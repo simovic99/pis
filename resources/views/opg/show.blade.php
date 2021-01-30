@@ -59,6 +59,19 @@
                                          <tr>     <td><strong>Opis: </strong>{{ $product->opis}}</td></tr>
 
                                  <tr>  <td><strong>Cijena:</strong> {{ $product->cijena }} KM</td></tr>
+                                 @auth @if(Auth::user()->isSuperAdmin() || Auth::user()->my_id() == $opg->user_id) <tr>   <form action="{{ route('product.destroy', $product->id) }}" method="POST">
+                                    <td><a href="{{ route('product.edit', $product->id) }}"> <i class="fas fa-edit  fa-lg"></i></a>
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" title="delete" style="border: none; background-color:transparent;">
+                                        <i class="fas fa-trash fa-lg text-danger"></i>
+                               </td></form>
+                            </tr>
+                            @endif
+
+
+                            @endauth
 
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Middleware\Korisnik;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class KorisniciController extends Controller
@@ -71,9 +72,10 @@ public function update(Request $request, User $user){
     $request->validate([
         'name' => 'required',
         'email' => 'required',
-        'role' => 'required',
 
     ]);
+
+
     $user->update($request->all());
 
     return redirect()->route('users.index')
@@ -92,8 +94,8 @@ public function destroy(User $user)
 
     $user->delete();
 
-    return redirect()->route('Users.index')
-        ->with('success', 'USer deleted successfully');
+    return redirect()->route('users.index')
+        ->with('success', 'User deleted successfully');
 
 }}
 
