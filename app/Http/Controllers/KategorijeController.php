@@ -15,6 +15,9 @@ class KategorijeController extends Controller
     public function index()
     {
         //
+        $kategorije=Kategorije::all();
+        return view('kategorije.index',compact('kategorije'));
+
     }
 
     /**
@@ -25,6 +28,9 @@ class KategorijeController extends Controller
     public function create()
     {
         //
+
+        return view('kategorije.create');
+
     }
 
     /**
@@ -35,6 +41,16 @@ class KategorijeController extends Controller
      */
     public function store(Request $request)
     {
+        //
+        $request->validate([
+            'naziv' => 'required',
+        ]);
+
+        Kategorije::create($request->all());
+
+        return redirect()->route('kategorije.index')
+            ->with('success', 'Kategorije created successfully.');
+
         //
     }
 
@@ -58,6 +74,8 @@ class KategorijeController extends Controller
     public function edit(Kategorije $kategorije)
     {
         //
+
+        return view('kategorije.edit', compact('kategorije'));
     }
 
     /**
@@ -70,6 +88,15 @@ class KategorijeController extends Controller
     public function update(Request $request, Kategorije $kategorije)
     {
         //
+        $request->validate([
+            'naziv' => 'required',
+
+
+        ]);
+        $kategorije->update($request->all());
+
+        return redirect()->route('kategorije.index')
+            ->with('success', 'kategorije updated successfully');
     }
 
     /**
@@ -80,6 +107,10 @@ class KategorijeController extends Controller
      */
     public function destroy(Kategorije $kategorije)
     {
+        $kategorije->delete();
+
+        return redirect()->route('kategorije.index')
+            ->with('success', 'kategorije deleted successfully');
         //
     }
 }

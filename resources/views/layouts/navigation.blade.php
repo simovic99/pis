@@ -22,6 +22,9 @@
                     <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                         {{ __('Korisnici') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('kategorije.index')" :active="request()->routeIs('kategorije.index')">
+                        {{ __('Kategorije') }}
+                    </x-nav-link>
                     @else
                     <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                         {{ __('Moj profil') }}
