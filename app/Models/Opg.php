@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $naziv
  * @property string $telefon
  * @property string $adresa
+ * @property string $Lokalitet
  * @property User $user
  * @property Product[] $products
  */
@@ -33,7 +34,7 @@ class Opg extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'naziv', 'telefon', 'adresa'];
+    protected $fillable = ['user_id', 'naziv', 'telefon', 'adresa','Lokalitet'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

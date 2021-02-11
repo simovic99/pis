@@ -16,6 +16,7 @@
                                 <tr>  <td> Naziv </td> <td><input type="text" name="naziv" /> </td></tr>
                                 <tr> <td>   Telefon    </td> <td>      <input type="text" name="telefon"/> </td></tr>
                                 <tr>    <td>  Adresa   </td> <td>   <input type="text" name="adresa" /> </td></tr>
+                                <tr>    <td>  Lokalitet  </td> <td>  <textarea rows="5" name="Lokalitet" ></textarea> </td></tr>
                                 <tr>  <td>  Korisnik   </td> <td>  <select class="form-control" name="user_id">
                                     @foreach($users as $item)
                                       <option value="{{$item->id}}">{{$item->name}}</option>

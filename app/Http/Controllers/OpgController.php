@@ -96,6 +96,7 @@ class OpgController extends Controller
             'naziv' => 'required',
             'adresa' => 'required',
             'telefon' => 'required',
+            'Lokalitet'=>'required',
 
         ]);
         $opg->update($request->all());

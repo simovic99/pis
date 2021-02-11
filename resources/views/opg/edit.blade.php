@@ -18,6 +18,7 @@
                                 <tr>  <td> Naziv </td> <td><input type="text" name="naziv" value="{{ $opg->naziv }}"/> </td></tr>
                                 <tr> <td>   Telefon    </td> <td>      <input type="text" name="telefon" value="{{ $opg->telefon }}"/> </td></tr>
                                 <tr>    <td>  Adresa   </td> <td>   <input type="text" name="adresa" value="{{ $opg->adresa }}" /> </td></tr>
+                                <tr>    <td>  Lokalitet  </td> <td>  <textarea rows="5" name="Lokalitet" >{{ $opg->Lokalitet }} </textarea> </td></tr>
                                @if(Auth::user()->isSuperAdmin())  <tr>  <td>  Korisnik   </td> <td>  <select class="form-control" name="user_id">
                                     @foreach($korisnici as $item)
                                       <option value="{{$item->id}}">{{$item->name}}</option>

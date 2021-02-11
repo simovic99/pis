@@ -37,7 +37,7 @@
                                             <td><strong>E-mail: </strong> {{$email}}</td></tr>
 
                                             </tr>
-
+                                            <td><strong>Lokalitet: </strong> {{$opg->Lokalitet}} </td></tr>
 
                                     </td>
                                 </tr>

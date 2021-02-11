@@ -35,6 +35,9 @@
 
                                         </tr>
 
+
+                                    </tr>
+
                                  <tr><td><a href="{{ route('opg.show', $opg->id) }}"><button class="btn btn-primary">Detalji opg-a</button> </a></td>
                                 </tr>
                                 @auth @if(Auth::user()->isSuperAdmin() || Auth::user()->my_id() == $opg->user_id) <tr>
