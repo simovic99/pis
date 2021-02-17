@@ -30,7 +30,9 @@ class ProductController extends Controller
                 $querry->orWhere('naziv','LIKE','%'.$term.'%')->get();
             }
         }]])->orderBy('id','desc')->paginate(12);
-        return view('product.index',compact('opgs','products','cat'));
+        $x=count($products);
+
+        return view('product.index',compact('opgs','products','cat','x'));
     }
     public function akcija(){
 

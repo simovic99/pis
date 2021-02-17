@@ -53,7 +53,12 @@
 
 
 
-
+                            @if($x==0)
+                        <div class="n2">
+                            <br>
+                            Nijedan proizvod nije pronađen
+                        </div>
+                            @endif
 
                             @foreach ($products as $product)
 
@@ -99,6 +104,7 @@
                                 @endif
 
                                 @endauth
+
                                     @endforeach
 
                                      </td></tr>

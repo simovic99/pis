@@ -20,6 +20,7 @@
 
                             @foreach ($products as $product)
 
+
                             <div class="large-3 columns ">
 
                         <table class="tablice">
