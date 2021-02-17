@@ -9,6 +9,9 @@ use App\Models\User;
 use App\Product as AppProduct;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Auth;
+
+
 class ProductController extends Controller
 {
     /**
@@ -32,6 +35,7 @@ class ProductController extends Controller
         }]])->orderBy('id','desc')->paginate(12);
         return view('product.index',compact('opgs','products'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -96,10 +100,19 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show()
     {
         //
+        $user=Auth::user();
+        $opg=DB::table('opg')->where('user_id',$user->id)->value('id');
+
+
+        $products=DB::table('products')->where('opg_id',$opg)->get();
+        return view('product.moji',compact('products'));
+
     }
+
+
 
     /**
      * Show the form for editing the specified resource.

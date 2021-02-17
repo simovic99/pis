@@ -15,13 +15,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property float $cijena
  * @property Kategorije $kategorije
  * @property Opg $opg
+ *  @property int $popust
  */
 class Product extends Model
 {
     /**
      * @var array
      */
-    protected $fillable = ['kategorija_id', 'opg_id', 'naziv','img', 'opis', 'cijena'];
+    protected $fillable = ['kategorija_id', 'opg_id', 'naziv','img', 'opis', 'cijena','popust'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

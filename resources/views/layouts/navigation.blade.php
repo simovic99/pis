@@ -29,6 +29,13 @@
                     <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                         {{ __('Moj profil') }}
                     </x-nav-link>
+
+                        <x-nav-link :href="url('../public/product/moji')" :active="request()->routeIs('product.show')">
+
+                        {{ __('Moji proizvodi') }}
+
+                    </x-nav-link>
+
                     @endif
                     @endauth
                     <x-nav-link :href="route('opg.index')" :active="request()->routeIs('opg.index')"  >
