@@ -21,7 +21,14 @@
                                 <tr>    <td>  Lokalitet  </td> <td>  <textarea rows="5" name="Lokalitet" >{{ $opg->Lokalitet }} </textarea> </td></tr>
                                @if(Auth::user()->isSuperAdmin())  <tr>  <td>  Korisnik   </td> <td>  <select class="form-control" name="user_id">
                                     @foreach($korisnici as $item)
-                                      <option value="{{$item->id}}">{{$item->name}}</option>
+                                    @if($opg->user_id==$item->id)
+                                      <option selected="selected" value="{{$item->id}}">{{$item->name}}</option>
+
+
+                                      @else
+                                      <option  value="{{$item->id}}">{{$item->name}}</option>
+
+                                      @endif
                                     @endforeach
                                   </select>
                                 </td></tr>

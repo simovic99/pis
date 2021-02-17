@@ -23,18 +23,24 @@ class ProductController extends Controller
 
     {
         //
-
+        $cat=Kategorije::all();
         $opgs=Opg::all();
         $products=Product::where([['naziv','!=',Null],[function($querry)use($request){
             if(($term=$request->term)){
                 $querry->orWhere('naziv','LIKE','%'.$term.'%')->get();
             }
-
-
-
         }]])->orderBy('id','desc')->paginate(12);
-        return view('product.index',compact('opgs','products'));
+        return view('product.index',compact('opgs','products','cat'));
     }
+    public function akcija(){
+
+        $cat=Kategorije::all();
+        $opgs=Opg::all();
+        $products=DB::table('products')->where('popust','!=',0)->get();
+        return view('product.akcija',compact('opgs','products','cat'));
+    }
+
+
 
 
     /**

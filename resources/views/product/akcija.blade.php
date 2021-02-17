@@ -6,12 +6,7 @@
         <div class="row justify-content-center" id="naruci">
             <div class="col-md-12" >
                 <div class="card"  >
-                    <div class="card-header">@auth <button class="btn btn-primary"><x-nav-link :href="route('product.create')" class="n1">
-                        {{ __('Dodaj novi proizvod') }}
-                    </x-nav-link></button> @endauth
-                    <button class="btn btn-primary akcija ">   <x-nav-link :href="route('akcija')" :active="request()->routeIs('akcija')" class="n2">
-                        {{ __('Proizvodi na akciji') }}
-                 </x-nav-link> </button>
+                    <div class="card-header">Proizvodi na akciji
 
                  </div>
 
@@ -22,38 +17,6 @@
 
                             </div>
                         @endif
-
-                        <div class="">
-                            <div>
-                                <div class="mx-auto pull-right">
-                                    <div class="search">
-                                        <form action="{{ route('product.index') }}" method="GET" role="search">
-
-                                            <div class="input-group">
-
-                                                <input type="text" class="form-control mr-2" name="term" placeholder="Pretraži proizvode" id="term">
-                                                <span class="input-group-btn mr-5 mt-1">
-                                                    <button class="btn btn-primary" type="submit" title="Pretraži proizvode">
-                                                        <span class="fas fa-search"></span>
-                                                    </button>
-
-                                                <a href="{{ route('product.index') }}" class=" mt-1">
-
-                                                        <button class="btn btn-danger" type="button" title="Refresh page">
-                                                            <span class="fas fa-sync-alt"></span>
-                                                        </button>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-
-
 
                             @foreach ($products as $product)
 
@@ -68,12 +31,11 @@
 
 
                                  <tr>     <td><strong>Opis: </strong>{{ $product->opis}}</td></tr>
-                                 @if($product->popust ==0)
-                                 <tr>  <td><strong>Cijena:</strong> {{ $product->cijena }} KM</td></tr>
-                                 @else
+
                                  <tr>  <td><strong>Stara cijena:</strong> {{ $product->cijena }} KM</td></tr>
                                  <tr>  <td><strong>Cijena s popustom :</strong> {{ $product->cijena * (1- $product->popust/100) }} KM</td></tr>
-                                 @endif
+                                 <tr>  <td><strong>Popust :</strong> {{ $product->popust }} %</td></tr>
+
                                  @foreach($cat as $kategorija)
 
                                 @if($kategorija->id == $product->kategorija_id)

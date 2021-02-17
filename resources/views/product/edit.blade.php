@@ -47,6 +47,12 @@
                                             <input type="file" name="file" />
                                         </div>
                                     </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                            <strong>Popust</strong>
+                                            <input type="number"  name="popust"  min="0" max="99"value="{{ $product->popust}}"/> %
+                                        </div>
+                                    </div>
 
 
                                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -55,7 +61,13 @@
                                             <select name="kategorija_id" class="form-control" >
 
                                                 @foreach($kategorija as $item)
+                                                @if($product->kategorija_id == $item->id)
+                                                <option selected="selected" value="{{$item->id}}">{{$item->naziv}}</option>
+                                               @else
+
+
                                                 <option value="{{$item->id}}">{{$item->naziv}}</option>
+                                                @endif
                                               @endforeach
                                             </select>
 

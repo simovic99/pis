@@ -29,5 +29,8 @@ Route::resource('opg', OpgController::class);
 Route::resource('kategorije', KategorijeController::class);
 Route::resource('product', ProductController::class);
 Route::resource('users', KorisniciController::class);
+Route::get('product.akcija','App\Http\Controllers\ProductController@akcija')->name('akcija');
+
+
 
 require __DIR__.'/auth.php';

@@ -39,6 +39,11 @@
 
                                   </select>
                                 </td></tr>
+
+                                <tr><td>
+                                       Popust</td><td>
+                                        <input type="number"  name="popust"  min="0" max="99"value="0"/> %
+                                  </td></tr>
                                 <tr>  <td>  Kategorija   </td> <td>  <select class="form-control" name="kategorija_id">
                                     @foreach($kategorija as $item)
                                       <option value="{{$item->id}}">{{$item->naziv}}</option>

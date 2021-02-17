@@ -14,6 +14,13 @@ h2{
    color:white;
 
 }
+.n2{
+    font-size: x-large;
+    color:black;
+}
+.link{
+    color:#32a883;
+}
 .brisi{
     background-color:#d66363;
 }
@@ -142,6 +149,11 @@ th{
     margin-right: auto;
 
 }
+.akcija{
+    background-color: yellow;
+    color:black;
+}
+
 .card-header{
     text-align: center;
     color:#32a883;

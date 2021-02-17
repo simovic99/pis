@@ -13,11 +13,15 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex link">
 
-                    <x-nav-link :href="route('product.index')" :active="request()->routeIs('product.index')">
-                        {{ __('Proizvodi') }}
-                 </x-nav-link>  @auth
+
+                 <x-nav-link :href="route('product.index')" :active="request()->routeIs('product.index')">
+                    {{ __('Proizvodi') }}
+             </x-nav-link>
+             <x-nav-link :href="route('akcija')" :active="request()->routeIs('akcija')">
+                {{ __('Proizvodi na akciji') }}
+         </x-nav-link> @auth
                  @if(Auth::user()->isSuperAdmin())
                     <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                         {{ __('Korisnici') }}
