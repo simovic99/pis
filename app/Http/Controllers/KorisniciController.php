@@ -7,19 +7,23 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Opg;
+use Illuminate\Support\Facades\Hash;
+
 
 class KorisniciController extends Controller
 {
    public function index(){
 //$korisnici= DB::select('select  id, name,email,role from users');
-
+$opgs=Opg::all();
 $korisnici=User::all();
-return view('users.index',compact('korisnici'));
+return view('users.index',compact('korisnici','opgs'));
 
 }
 public function create()
 {
     //
+    return view('users.create');
 }
 
 /**
@@ -72,10 +76,10 @@ public function update(Request $request, User $user){
     $request->validate([
         'name' => 'required',
         'email' => 'required',
+        'password' => 'required|string|confirmed|min:8',
 
     ]);
-
-
+    $request['password'] = Hash::make($request['password']);
     $user->update($request->all());
 
     return redirect()->route('users.index')
