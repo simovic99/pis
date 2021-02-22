@@ -56,11 +56,14 @@
                             @if($x==0)
                         <div class="n2">
                             <br>
-                            Nijedan proizvod nije pronađen
+                            Nijedan proizvod " {{$_GET['term']  }} "  nije pronađen
                         </div>
                             @endif
 
                             @foreach ($products as $product)
+
+
+
 
                             <div class="large-3 columns ">
 
